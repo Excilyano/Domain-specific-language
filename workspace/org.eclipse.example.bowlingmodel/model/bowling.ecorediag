@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_uxLVUKgWEee7eJGigIRaSw" type="EcoreTools" name="bowling.ecorediag" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_uxYwsKgWEee7eJGigIRaSw" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_uxh6oKgWEee7eJGigIRaSw" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_uxh6oagWEee7eJGigIRaSw" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_uxh6qagWEee7eJGigIRaSw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="bowling.ecore#//Player/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_uxh6qqgWEee7eJGigIRaSw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_uxh6q6gWEee7eJGigIRaSw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="bowling.ecore#//Player/dateOfBirth"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_uxh6rKgWEee7eJGigIRaSw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_uxh6ragWEee7eJGigIRaSw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="bowling.ecore#//Player/height"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_uxh6rqgWEee7eJGigIRaSw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_uxh6r6gWEee7eJGigIRaSw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="bowling.ecore#//Player/isProfessional"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_uxh6sKgWEee7eJGigIRaSw"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_uxh6oqgWEee7eJGigIRaSw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_uxh6o6gWEee7eJGigIRaSw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_uxh6pKgWEee7eJGigIRaSw"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_uxh6pagWEee7eJGigIRaSw" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_uxh6pqgWEee7eJGigIRaSw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_uxh6p6gWEee7eJGigIRaSw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_uxh6qKgWEee7eJGigIRaSw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_uxYwsagWEee7eJGigIRaSw" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="bowling.ecore#//Player"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uxYwsqgWEee7eJGigIRaSw"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_uxh6sagWEee7eJGigIRaSw" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_uxh6tKgWEee7eJGigIRaSw" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_uxh6tagWEee7eJGigIRaSw" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_uxrroKgWEee7eJGigIRaSw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="bowling.ecore#//League/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_uxrroagWEee7eJGigIRaSw"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_uxh6tqgWEee7eJGigIRaSw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_uxh6t6gWEee7eJGigIRaSw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_uxh6uKgWEee7eJGigIRaSw"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_uxh6uagWEee7eJGigIRaSw" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_uxh6uqgWEee7eJGigIRaSw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_uxh6u6gWEee7eJGigIRaSw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_uxh6vKgWEee7eJGigIRaSw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_uxh6sqgWEee7eJGigIRaSw" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="bowling.ecore#//League"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uxh6s6gWEee7eJGigIRaSw" x="31" y="162"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_uxLVUagWEee7eJGigIRaSw"/>
+  <element xmi:type="ecore:EPackage" href="bowling.ecore#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_ux1coKgWEee7eJGigIRaSw" type="3002" source="_uxh6sagWEee7eJGigIRaSw" target="_uxYwsKgWEee7eJGigIRaSw">
+    <children xmi:type="notation:Node" xmi:id="_ux1cpKgWEee7eJGigIRaSw" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_ux1cpagWEee7eJGigIRaSw" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_ux1cpqgWEee7eJGigIRaSw" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_ux1cp6gWEee7eJGigIRaSw" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_ux1coagWEee7eJGigIRaSw" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_ux1coqgWEee7eJGigIRaSw" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="bowling.ecore#//League/players"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ux1co6gWEee7eJGigIRaSw" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_u02UYKgWEee7eJGigIRaSw" id="(0.4956521739130435,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_u02UYagWEee7eJGigIRaSw" id="(0.4971751412429379,1.0)"/>
+  </edges>
+</notation:Diagram>

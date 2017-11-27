@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="__Qj8EKgaEee7eJGigIRaSw" type="EcoreTools" name="calendarDSL" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_FkeKIKgbEee7eJGigIRaSw" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_FkeKJKgbEee7eJGigIRaSw" type="4006"/>
+    <children xmi:type="notation:Node" xmi:id="_FkeKJagbEee7eJGigIRaSw" type="5003">
+      <children xmi:type="notation:Node" xmi:id="_KWaPIKgbEee7eJGigIRaSw" type="2003">
+        <children xmi:type="notation:Node" xmi:id="_KWaPI6gbEee7eJGigIRaSw" type="4002"/>
+        <children xmi:type="notation:Node" xmi:id="_KWjZEKgbEee7eJGigIRaSw" type="5004">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_KWjZEagbEee7eJGigIRaSw"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_KWjZEqgbEee7eJGigIRaSw"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_KWjZE6gbEee7eJGigIRaSw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_KWkAIKgbEee7eJGigIRaSw" type="5005">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_KWkAIagbEee7eJGigIRaSw"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_KWkAIqgbEee7eJGigIRaSw"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_KWkAI6gbEee7eJGigIRaSw"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_KWaPIagbEee7eJGigIRaSw" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+        <element xmi:type="ecore:EClass" href="calendarDSL.ecore#//calendarDSL/Calendar"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KWaPIqgbEee7eJGigIRaSw" x="35" y="22" width="303" height="353"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_7Z9BcKgbEee7eJGigIRaSw" type="2003">
+        <children xmi:type="notation:Node" xmi:id="_7Z9Bc6gbEee7eJGigIRaSw" type="4002"/>
+        <children xmi:type="notation:Node" xmi:id="_7Z9BdKgbEee7eJGigIRaSw" type="5004">
+          <children xmi:type="notation:Node" xmi:id="_A2_R4KgcEee7eJGigIRaSw" type="2001">
+            <element xmi:type="ecore:EAttribute" href="calendarDSL.ecore#//calendarDSL/Event/on"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_A2_R4agcEee7eJGigIRaSw"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_B4yGEKgcEee7eJGigIRaSw" type="2001">
+            <element xmi:type="ecore:EAttribute" href="calendarDSL.ecore#//calendarDSL/Event/from"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_B4yGEagcEee7eJGigIRaSw"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_DeQ2IKgcEee7eJGigIRaSw" type="2001">
+            <element xmi:type="ecore:EAttribute" href="calendarDSL.ecore#//calendarDSL/Event/to"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_DeQ2IagcEee7eJGigIRaSw"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_FbW08KgcEee7eJGigIRaSw" type="2001">
+            <element xmi:type="ecore:EAttribute" href="calendarDSL.ecore#//calendarDSL/Event/at"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_FbW08agcEee7eJGigIRaSw"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_073HMKgcEee7eJGigIRaSw" type="2001">
+            <element xmi:type="ecore:EAttribute" href="calendarDSL.ecore#//calendarDSL/Event/name"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_073HMagcEee7eJGigIRaSw"/>
+          </children>
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_7Z9BdagbEee7eJGigIRaSw"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_7Z9BdqgbEee7eJGigIRaSw"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_7Z9Bd6gbEee7eJGigIRaSw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7Z9BeKgbEee7eJGigIRaSw" type="5005">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_7Z9BeagbEee7eJGigIRaSw"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_7Z9BeqgbEee7eJGigIRaSw"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_7Z9Be6gbEee7eJGigIRaSw"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_7Z9BcagbEee7eJGigIRaSw" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+        <element xmi:type="ecore:EClass" href="calendarDSL.ecore#//calendarDSL/Event"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Z9BcqgbEee7eJGigIRaSw" x="425" y="32" width="249" height="269"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_FkeKJqgbEee7eJGigIRaSw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_FkeKJ6gbEee7eJGigIRaSw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_FkeKKKgbEee7eJGigIRaSw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_FkeKIagbEee7eJGigIRaSw" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13150135" lineColor="4210752"/>
+    <styles xmi:type="notation:MultiDiagramLinkStyle" xmi:id="_FkeKIqgbEee7eJGigIRaSw"/>
+    <element xmi:type="ecore:EPackage" href="calendarDSL.ecore#//calendarDSL"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FkeKI6gbEee7eJGigIRaSw" x="45" y="25" width="753" height="443"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="__Qj8EagaEee7eJGigIRaSw"/>
+  <element xmi:type="ecore:EPackage" href="calendarDSL.ecore#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_VxD4EKgcEee7eJGigIRaSw" type="3002" source="_KWaPIKgbEee7eJGigIRaSw" target="_7Z9BcKgbEee7eJGigIRaSw">
+    <children xmi:type="notation:Node" xmi:id="_VxD4FKgcEee7eJGigIRaSw" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_VxD4FagcEee7eJGigIRaSw" x="-34" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_VxD4FqgcEee7eJGigIRaSw" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_VxD4F6gcEee7eJGigIRaSw" x="2" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_VxD4EagcEee7eJGigIRaSw" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_VxD4EqgcEee7eJGigIRaSw" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="calendarDSL.ecore#//calendarDSL/Calendar/events"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_VxD4E6gcEee7eJGigIRaSw" points="[42, 3, -136, 1]$[179, -96, 1, -98]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VxD4GKgcEee7eJGigIRaSw" id="(0.8613861386138614,0.3031161473087819)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VxD4GagcEee7eJGigIRaSw" id="(0.1927710843373494,0.3680297397769517)"/>
+  </edges>
+</notation:Diagram>

@@ -1,0 +1,42 @@
+grammar fr.imta.tp2.tutorial.MyTuto with org.eclipse.xtext.common.Terminals
+
+generate myTuto "http://www.imta.fr/tp2/tutorial/MyTuto"
+
+MyTuto :
+	(elements+=AbstractElement)*;
+	
+AbstractElement :
+	PackageDeclaration | Type | Import;
+
+PackageDeclaration :
+	'package' name=QualifiedName '{'
+		(elements+=AbstractElement)*
+	'}'
+;
+
+QualifiedName :
+	ID ('.'ID)*
+;
+
+Import :
+	'import' importedNameSpace=QualifiedNameSpaceWithWildCard
+;
+
+QualifiedNameSpaceWithWildCard :
+	QualifiedName '.*'?
+;
+
+Type :
+	DataType | Entity;
+
+DataType :
+	'datatype' name=ID;
+
+Entity :
+	'entity' name=ID ('extends' superType=[Entity|QualifiedName])? '{'
+		(features+=Feature)*
+	'}';
+
+Feature:
+	(many?='many')? name=ID ':' type=[Type|QualifiedName]
+;

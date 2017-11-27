@@ -1,0 +1,43 @@
+grammar imta.fr.tp.CalcDSL2 with org.eclipse.xtext.common.Terminals
+
+generate calcDSL2 "http://www.fr.imta/tp/CalcDSL2"
+
+CalcDSL:
+	(instructions+=Instruction)*
+;
+
+Instruction:
+	Declaration | Operation
+;
+
+Declaration:
+	type=Type variable=Variable ';'
+;
+
+Type:
+	'int' | 'float' | 'double'
+;
+
+Operation:
+	variable=[Variable] '=' calculation=Calculation
+;
+
+Calculation:
+	init=Operand (Operator vectors+=Operand)* ';'
+;
+
+Operand:
+	Variable | DOUBLE | INT
+;
+
+Operator:
+	'+' | '-' | '/' | '*' | '%'
+;
+
+Variable:
+	name=ID	
+;
+
+terminal DOUBLE :
+	'-'? ('0'..'9')+ '.' ('0'..'9')+ (('e'|'E') ('-')? ('0'..'9')+)?
+;

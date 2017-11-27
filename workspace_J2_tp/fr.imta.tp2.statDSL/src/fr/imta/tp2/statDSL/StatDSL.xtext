@@ -1,0 +1,35 @@
+grammar fr.imta.tp2.statDSL.StatDSL with org.eclipse.xtext.common.Terminals
+
+generate statDSL "http://www.imta.fr/tp2/statDSL/StatDSL"
+
+StatDSL:
+	program=Program
+;
+
+Program:
+	'program' name=ID
+	'begin'
+	Instructions
+	'return' Keyword ';'
+	'end'
+;
+
+Keyword:
+	'moyenne' | 'variance' | 'ecart-type' | 'mode'
+;
+
+Instructions:
+	(
+		(Mod) &
+		(Eff)
+	)
+;
+
+Eff:
+	'eff : ' INT (','INT)* ';'
+;
+
+Mod:
+	'mod : ' INT (','INT)* ';'
+;
+

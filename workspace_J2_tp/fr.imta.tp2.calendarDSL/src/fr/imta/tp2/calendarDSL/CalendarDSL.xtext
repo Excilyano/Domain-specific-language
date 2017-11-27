@@ -1,0 +1,38 @@
+grammar fr.imta.tp2.calendarDSL.CalendarDSL with org.eclipse.xtext.common.Terminals
+
+generate calendarDSL "http://www.imta.fr/tp2/calendarDSL/CalendarDSL"
+
+Calendar:
+	{Calendar} 'calendar' '{' events+=Event* '}'
+;
+	
+Event:
+	'event' name=STRING '{'
+		(
+			('on' on=Date) &
+			('from' from=TIME)? &
+			('to' to=TIME)? &
+			('at' at=STRING)?
+		)
+	'}'
+;
+
+Date:
+	year=YEAR'/'month=MONTH'/'day=DAY
+;
+
+terminal YEAR :
+	('0'..'9')('0'..'9')('0'..'9')('0'..'9')
+;
+
+terminal MONTH:
+	('0'..'1')?('0'..'9')
+;
+
+terminal DAY:
+	('0'..'3')?('0'..'9')
+;
+
+terminal TIME: 
+	('0'..'9')('0'..'9')':'('0'..'9')('0'..'9')
+;

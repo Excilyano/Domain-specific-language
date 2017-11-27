@@ -1,0 +1,51 @@
+grammar fr.imta.tp.Sql4csv with org.eclipse.xtext.common.Terminals
+
+generate sql4csv "http://www.imta.fr/tp/Sql4csv"
+
+SQL4CSV:
+	program=Program
+;
+
+Program:
+	queries+=Query*
+;
+
+Query:
+	'select' column=Column (',' columns+=Column)* 'from' table=Table (',' tables+=Table)* ('where' conditions=Condition)?
+;
+
+Column:
+	(table=[Table]'.')?name=ID
+;
+
+Table:
+	name=ID
+;
+
+Condition:
+	BinaryCondition | Equality
+;
+
+Equality:
+	left=Column '=' right=(ColumnEquality | ValueEquality)
+;
+
+BinaryCondition:
+	AndCondition | OrCondition
+;
+
+ColumnEquality:
+	right=Column
+;
+
+ValueEquality:
+	right=STRING	
+;
+
+AndCondition:
+	left=Equality 'and' '(' right=Condition ')'
+;
+
+OrCondition:
+	left=Equality 'or' '(' right=Condition ')'
+;

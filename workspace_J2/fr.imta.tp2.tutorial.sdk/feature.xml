@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="fr.imta.tp2.tutorial.sdk"
+	label="MyTuto SDK Feature "
+	version="1.0.0.qualifier">
+	<plugin
+			id="fr.imta.tp2.tutorial"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+	<plugin
+			id="fr.imta.tp2.tutorial.ui"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+</feature>

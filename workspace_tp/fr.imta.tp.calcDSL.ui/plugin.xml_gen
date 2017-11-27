@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+    <extension
+            point="org.eclipse.ui.editors">
+        <editor
+            class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+            default="true"
+            extensions="calc"
+            id="fr.imta.tp.CalcDSL"
+            name="CalcDSL Editor">
+        </editor>
+    </extension>
+    <extension
+        point="org.eclipse.ui.handlers">
+        <handler
+            class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+            commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
+            <activeWhen>
+                <reference
+                    definitionId="fr.imta.tp.CalcDSL.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+        <handler
+            class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+            commandId="fr.imta.tp.CalcDSL.validate">
+         <activeWhen>
+            <reference
+                    definitionId="fr.imta.tp.CalcDSL.Editor.opened">
+            </reference>
+         </activeWhen>
+      	</handler>
+      	<!-- copy qualified name -->
+        <handler
+            class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
+            commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName">
+            <activeWhen>
+				<reference definitionId="fr.imta.tp.CalcDSL.Editor.opened" />
+            </activeWhen>
+        </handler>
+        <handler
+            class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
+            commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName">
+            <activeWhen>
+            	<and>
+            		<reference definitionId="fr.imta.tp.CalcDSL.XtextEditor.opened" />
+	                <iterate>
+						<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
+					</iterate>
+				</and>
+            </activeWhen>
+        </handler>
+    </extension>
+    <extension point="org.eclipse.core.expressions.definitions">
+        <definition id="fr.imta.tp.CalcDSL.Editor.opened">
+            <and>
+                <reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
+                <with variable="activeEditor">
+                    <test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
+                        value="fr.imta.tp.CalcDSL" 
+                        forcePluginActivation="true"/>
+                </with>        
+            </and>
+        </definition>
+        <definition id="fr.imta.tp.CalcDSL.XtextEditor.opened">
+            <and>
+                <reference definitionId="isXtextEditorActive"/>
+                <with variable="activeEditor">
+                    <test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
+                        value="fr.imta.tp.CalcDSL" 
+                        forcePluginActivation="true"/>
+                </with>        
+            </and>
+        </definition>
+    </extension>
+    <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+            class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="fr.imta.tp.CalcDSL"
+            name="CalcDSL">
+            <keywordReference id="fr.imta.tp.ui.keyword_CalcDSL"/>
+        </page>
+        <page
+            category="fr.imta.tp.CalcDSL"
+            class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+            id="fr.imta.tp.CalcDSL.coloring"
+            name="Syntax Coloring">
+            <keywordReference id="fr.imta.tp.ui.keyword_CalcDSL"/>
+        </page>
+        <page
+            category="fr.imta.tp.CalcDSL"
+            class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+            id="fr.imta.tp.CalcDSL.templates"
+            name="Templates">
+            <keywordReference id="fr.imta.tp.ui.keyword_CalcDSL"/>
+        </page>
+    </extension>
+    <extension
+            point="org.eclipse.ui.propertyPages">
+        <page
+            class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="fr.imta.tp.CalcDSL"
+            name="CalcDSL">
+            <keywordReference id="fr.imta.tp.ui.keyword_CalcDSL"/>
+            <enabledWhen>
+	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+        </page>
+    </extension>
+    <extension
+        point="org.eclipse.ui.keywords">
+        <keyword
+            id="fr.imta.tp.ui.keyword_CalcDSL"
+            label="CalcDSL"/>
+    </extension>
+    <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Trigger expensive validation"
+            id="fr.imta.tp.CalcDSL.validate"
+            name="Validate">
+      </command>
+      <!-- copy qualified name -->
+      <command
+            id="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
+            categoryId="org.eclipse.ui.category.edit"
+            description="Copy the qualified name for the selected element"
+            name="Copy Qualified Name">
+      </command>
+      <command
+            id="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName"
+            categoryId="org.eclipse.ui.category.edit"
+            description="Copy the qualified name for the selected element"
+            name="Copy Qualified Name">
+      </command>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+        <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.edit">
+             <command
+                 commandId="fr.imta.tp.CalcDSL.validate"
+                 style="push"
+                 tooltip="Trigger expensive validation">
+            <visibleWhen checkEnabled="false">
+                <reference
+                    definitionId="fr.imta.tp.CalcDSL.Editor.opened">
+                </reference>
+            </visibleWhen>
+         </command>  
+         </menuContribution>
+         <!-- copy qualified name -->
+         <menuContribution locationURI="popup:#TextEditorContext?after=copy">
+         	<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName" 
+         		style="push" tooltip="Copy Qualified Name">
+            	<visibleWhen checkEnabled="false">
+                	<reference definitionId="fr.imta.tp.CalcDSL.Editor.opened" />
+            	</visibleWhen>
+         	</command>  
+         </menuContribution>
+         <menuContribution locationURI="menu:edit?after=copy">
+         	<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
+            	style="push" tooltip="Copy Qualified Name">
+            	<visibleWhen checkEnabled="false">
+                	<reference definitionId="fr.imta.tp.CalcDSL.Editor.opened" />
+            	</visibleWhen>
+         	</command>  
+         </menuContribution>
+         <menuContribution locationURI="popup:org.eclipse.xtext.ui.outline?after=additions">
+			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName" 
+				style="push" tooltip="Copy Qualified Name">
+         		<visibleWhen checkEnabled="false">
+	            	<and>
+	            		<reference definitionId="fr.imta.tp.CalcDSL.XtextEditor.opened" />
+						<iterate>
+							<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
+						</iterate>
+					</and>
+				</visibleWhen>
+			</command>
+         </menuContribution>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
+			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
+				<visibleWhen checkEnabled="false">
+                	<reference definitionId="fr.imta.tp.CalcDSL.Editor.opened">
+                	</reference>
+            	</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+	    <handler
+            class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+            commandId="org.eclipse.xtext.ui.editor.FindReferences">
+            <activeWhen>
+                <reference
+                    definitionId="fr.imta.tp.CalcDSL.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+    </extension>   
+
+<!-- adding resource factories -->
+
+	<extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="calc">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+        <resourceServiceProvider
+            class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            uriExtension="calc">
+        </resourceServiceProvider>
+    </extension>
+
+
+	<!-- marker definitions for fr.imta.tp.CalcDSL -->
+	<extension
+	        id="calcdsl.check.fast"
+	        name="CalcDSL Problem"
+	        point="org.eclipse.core.resources.markers">
+	    <super type="org.eclipse.xtext.ui.check.fast"/>
+	    <persistent value="true"/>
+	</extension>
+	<extension
+	        id="calcdsl.check.normal"
+	        name="CalcDSL Problem"
+	        point="org.eclipse.core.resources.markers">
+	    <super type="org.eclipse.xtext.ui.check.normal"/>
+	    <persistent value="true"/>
+	</extension>
+	<extension
+	        id="calcdsl.check.expensive"
+	        name="CalcDSL Problem"
+	        point="org.eclipse.core.resources.markers">
+	    <super type="org.eclipse.xtext.ui.check.expensive"/>
+	    <persistent value="true"/>
+	</extension>
+
+   <extension
+         point="org.eclipse.xtext.builder.participant">
+      <participant
+            class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
+      </participant>
+   </extension>
+   <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+            category="fr.imta.tp.CalcDSL"
+            class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+            id="fr.imta.tp.CalcDSL.compiler.preferencePage"
+            name="Compiler">
+            <keywordReference id="fr.imta.tp.ui.keyword_CalcDSL"/>
+        </page>
+    </extension>
+    <extension
+            point="org.eclipse.ui.propertyPages">
+        <page
+            category="fr.imta.tp.CalcDSL"
+            class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+            id="fr.imta.tp.CalcDSL.compiler.propertyPage"
+            name="Compiler">
+            <keywordReference id="fr.imta.tp.ui.keyword_CalcDSL"/>
+            <enabledWhen>
+	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+        </page>
+    </extension>
+
+	<!-- Quick Outline -->
+	<extension
+		point="org.eclipse.ui.handlers">
+		<handler 
+			class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
+			<activeWhen>
+				<reference
+					definitionId="fr.imta.tp.CalcDSL.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension
+		point="org.eclipse.ui.commands">
+		<command
+			description="Open the quick outline."
+			id="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+			name="Quick Outline">
+		</command>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.open">
+			<command commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+				style="push"
+				tooltip="Open Quick Outline">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="fr.imta.tp.CalcDSL.Editor.opened"/>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+    <!-- quickfix marker resolution generator for fr.imta.tp.CalcDSL -->
+    <extension
+            point="org.eclipse.ui.ide.markerResolution">
+        <markerResolutionGenerator
+            class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="fr.imta.tp.ui.calcdsl.check.fast">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+        <markerResolutionGenerator
+            class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="fr.imta.tp.ui.calcdsl.check.normal">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+        <markerResolutionGenerator
+            class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="fr.imta.tp.ui.calcdsl.check.expensive">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+    </extension>
+   	<!-- Rename Refactoring -->
+	<extension point="org.eclipse.ui.handlers">
+		<handler 
+			class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler"
+			commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
+			<activeWhen>
+				<reference
+					definitionId="fr.imta.tp.CalcDSL.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+    <extension point="org.eclipse.ui.menus">
+         <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.edit">
+         <command commandId="org.eclipse.xtext.ui.refactoring.RenameElement"
+               style="push">
+            <visibleWhen checkEnabled="false">
+               <reference
+                     definitionId="fr.imta.tp.CalcDSL.Editor.opened">
+               </reference>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension point="org.eclipse.ui.preferencePages">
+	    <page
+	        category="fr.imta.tp.CalcDSL"
+	        class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
+	        id="fr.imta.tp.CalcDSL.refactoring"
+	        name="Refactoring">
+	        <keywordReference id="fr.imta.tp.ui.keyword_CalcDSL"/>
+	    </page>
+	</extension>
+
+  <extension point="org.eclipse.compare.contentViewers">
+    <viewer id="fr.imta.tp.CalcDSL.compare.contentViewers"
+            class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+            extensions="calc">
+    </viewer>
+  </extension>
+  <extension point="org.eclipse.compare.contentMergeViewers">
+    <viewer id="fr.imta.tp.CalcDSL.compare.contentMergeViewers"
+            class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+            extensions="calc" label="CalcDSL Compare">
+     </viewer>
+  </extension>
+  <extension point="org.eclipse.ui.editors.documentProviders">
+    <provider id="fr.imta.tp.CalcDSL.editors.documentProviders"
+            class="fr.imta.tp.ui.CalcDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
+            extensions="calc">
+    </provider>
+  </extension>
+
+</plugin>
